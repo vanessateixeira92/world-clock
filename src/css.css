@@ -1,0 +1,13 @@
+.conteiner {
+  padding: 66px;
+  margin: 66px;
+  background: grey;
+}
+
+h1 {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+}
