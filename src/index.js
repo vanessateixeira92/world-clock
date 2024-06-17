@@ -26,6 +26,20 @@ function updateTime() {
   }
 }
 
+// Selected City
+let selectedCityElement = document.querySelector(".selected-city");
+if (selectedCityElement) {
+  let selectedCityTimeZone = selectedCityElement.getAttribute("data-timezone");
+  let selectedCityDateElement = selectedCityElement.querySelector(".date");
+  let selectedCityTimeElement = selectedCityElement.querySelector(".time");
+  let selectedCityTime = moment().tz(selectedCityTimeZone);
+
+  selectedCityDateElement.innerHTML = selectedCityTime.format("MMMM Do YYYY");
+  selectedCityTimeElement.innerHTML = selectedCityTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+  );
+}
+
 function updateCity(event) {
   let cityTimeZone = event.target.value;
   if (cityTimeZone === "current") {
@@ -35,7 +49,7 @@ function updateCity(event) {
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
   citiesElement.innerHTML = `
-  <div class="city">
+  <div class="city selected-city" data-timezone="${cityTimeZone}">
     <div>
       <h2>${cityName}</h2>
       <div class="date">${cityTime.format("MMMM	Do YYYY")}</div>
