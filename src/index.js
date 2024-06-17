@@ -24,20 +24,21 @@ function updateTime() {
       "h:mm:ss [<small>]A[</small>]"
     );
   }
-}
 
-// Selected City
-let selectedCityElement = document.querySelector(".selected-city");
-if (selectedCityElement) {
-  let selectedCityTimeZone = selectedCityElement.getAttribute("data-timezone");
-  let selectedCityDateElement = selectedCityElement.querySelector(".date");
-  let selectedCityTimeElement = selectedCityElement.querySelector(".time");
-  let selectedCityTime = moment().tz(selectedCityTimeZone);
+  // Selected City
+  let selectedCityElement = document.querySelector(".selected-city");
+  if (selectedCityElement) {
+    let selectedCityTimeZone =
+      selectedCityElement.getAttribute("data-timezone");
+    let selectedCityDateElement = selectedCityElement.querySelector(".date");
+    let selectedCityTimeElement = selectedCityElement.querySelector(".time");
+    let selectedCityTime = moment().tz(selectedCityTimeZone);
 
-  selectedCityDateElement.innerHTML = selectedCityTime.format("MMMM Do YYYY");
-  selectedCityTimeElement.innerHTML = selectedCityTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-  );
+    selectedCityDateElement.innerHTML = selectedCityTime.format("MMMM Do YYYY");
+    selectedCityTimeElement.innerHTML = selectedCityTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 
 function updateCity(event) {
